@@ -5,6 +5,7 @@ extends CharacterBody3D
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 
+@export_category("Camera")
 @export var camera_sensitivity = 0.05
 
 var target_velocity = Vector3.ZERO
@@ -17,6 +18,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		$CameraPivot_rotateY.rotate_y(-event.relative.x * camera_sensitivity * deltaTime)
 		%CameraPivot_rotateX.rotate_x(event.relative.y * camera_sensitivity * deltaTime)
+		var angle:float = %CameraPivot_rotateX.basis.get_euler().x
+		angle = clamp(angle, deg_to_rad(-90), deg_to_rad(90))
+		%CameraPivot_rotateX.rotation.x = angle
+		print("Camera rotation",%CameraPivot_rotateX.basis.get_euler())
+		#%CameraPivot_rotateX.transform.global_rotation.x = clampf($CameraPivot_rotateX.transform.global_rotation.x, -180,180)
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -57,6 +63,7 @@ func _physics_process(delta: float) -> void:
 
 	# Moving the Character
 	velocity = target_velocity
-	print("Velocity = ", velocity)
 	move_and_slide()
+
+		
 	
