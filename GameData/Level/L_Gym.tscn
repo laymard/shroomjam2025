@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=8 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
 [ext_resource type="PackedScene" uid="uid://buxe8scb2ktls" path="res://GameData/LevelIngredient/BaseProp.tscn" id="2_hc2lk"]
+[ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc2lk"]
 albedo_color = Color(0.03955078, 0.140625, 0.08377075, 1)
@@ -29,8 +30,10 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_lmwx3")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9588013, 4.1721983, -9.918527)
 fall_acceleration = 50
+jump_impulse = 25
 
 [node name="BaseProp" parent="." instance=ExtResource("2_hc2lk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0651026, 1.499999, -7.386674)
@@ -40,3 +43,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.79337, 1.499999, -7.386674
 
 [node name="CanonTv" parent="." instance=ExtResource("1_0efhf")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -8.1790905, 1.5, 4.9697614)
+
+[node name="Container" type="Container" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+text = "test"
+script = ExtResource("4_w8qkj")

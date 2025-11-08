@@ -17,3 +17,9 @@ func add_tv(tvToAdd:int) -> void:
 	
 func add_vhs(vhsToAdd:int) -> void:
 	_vhsCount += vhsToAdd
+
+func get_vhs_count() -> int:
+	return _vhsCount
+	
+func get_tv_count() -> int:
+	return _tvCount

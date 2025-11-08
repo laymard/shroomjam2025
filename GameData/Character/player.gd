@@ -13,6 +13,8 @@ extends CharacterBody3D
 @export var camera_sensitivity = 0.05
 
 var target_velocity = Vector3.ZERO
+@onready
+var Inventory:GMInventoryComponent = %InventoryComponent
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -71,4 +73,5 @@ func _physics_process(delta: float) -> void:
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
-# Replace with function body.
+	
+	
