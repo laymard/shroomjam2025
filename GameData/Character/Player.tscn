@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8xxkqobu0ogu"]
+[gd_scene load_steps=9 format=3 uid="uid://c8xxkqobu0ogu"]
 
 [ext_resource type="Script" uid="uid://bfsvc8dkv4ao4" path="res://GameData/Character/player.gd" id="1_gx07i"]
 [ext_resource type="Script" uid="uid://dondj6xq4dm0k" path="res://GameData/Character/CollectorComponent.gd" id="2_avqrs"]
 [ext_resource type="Script" uid="uid://6n743851imtp" path="res://GameData/Character/inventory_component.gd" id="3_uosy3"]
+[ext_resource type="Script" uid="uid://bsgj4888spe82" path="res://GameData/Character/GMPlacementComponent.gd" id="4_3b5eq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6cfa4"]
 
@@ -40,6 +41,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7948371, 0, 0)
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.6, -2.805)
 
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot_rotateY/CameraPivot_rotateX/Camera3D"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -30)
+
 [node name="Component" type="Node" parent="."]
 
 [node name="CollectorComponent" type="Node" parent="Component"]
@@ -49,6 +54,9 @@ script = ExtResource("2_avqrs")
 [node name="InventoryComponent" type="Node" parent="Component"]
 unique_name_in_owner = true
 script = ExtResource("3_uosy3")
+
+[node name="PlacementComponent" type="Node" parent="Component"]
+script = ExtResource("4_3b5eq")
 
 [node name="CollectorShape" type="Area3D" parent="."]
 

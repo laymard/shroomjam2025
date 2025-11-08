@@ -15,8 +15,14 @@ func _process(delta: float) -> void:
 func add_tv(tvToAdd:int) -> void:
 	_tvCount += tvToAdd
 	
+func remove_tv(tvToRemove:int) -> void:
+	_tvCount -= tvToRemove
+	
 func add_vhs(vhsToAdd:int) -> void:
 	_vhsCount += vhsToAdd
+	
+func remove_vhs(vhsToRemove:int) -> void:
+	_vhsCount -= vhsToRemove
 
 func get_vhs_count() -> int:
 	return _vhsCount
