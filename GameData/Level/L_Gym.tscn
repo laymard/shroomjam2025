@@ -25,7 +25,7 @@ directional_shadow_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_lmwx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9588013, 4.1721983, -9.918527)
-fall_acceleration = null
+fall_acceleration = 50
 
 [node name="BaseProp" parent="." instance=ExtResource("2_hc2lk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0651026, 1.499999, -7.386674)
