@@ -27,6 +27,8 @@ func _input(event: InputEvent) -> void:
 		var angle:float = %CameraPivot_rotateX.basis.get_euler().x
 		angle = clamp(angle, deg_to_rad(-90), deg_to_rad(90))
 		%CameraPivot_rotateX.rotation.x = angle
+	if event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
