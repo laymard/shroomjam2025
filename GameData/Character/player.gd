@@ -1,3 +1,4 @@
+class_name GMPlayer
 extends CharacterBody3D
 
 # How fast the player moves in meters per second.
@@ -24,8 +25,7 @@ func _input(event: InputEvent) -> void:
 		var angle:float = %CameraPivot_rotateX.basis.get_euler().x
 		angle = clamp(angle, deg_to_rad(-90), deg_to_rad(90))
 		%CameraPivot_rotateX.rotation.x = angle
-		print("Camera rotation",%CameraPivot_rotateX.basis.get_euler())
-		#%CameraPivot_rotateX.transform.global_rotation.x = clampf($CameraPivot_rotateX.transform.global_rotation.x, -180,180)
+	
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -71,6 +71,4 @@ func _physics_process(delta: float) -> void:
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
-
-		
-	
+# Replace with function body.
