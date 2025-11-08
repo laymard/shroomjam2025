@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://4r0noqn8d7ej"]
+
+[ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
+[ext_resource type="PackedScene" uid="uid://buxe8scb2ktls" path="res://GameData/LevelIngredient/BaseProp.tscn" id="2_hc2lk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_70nuv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70nuv"]
+
+[node name="Root" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(56.673847, 0, 0, 0, 2, 0, 0, 0, 40.744095, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_70nuv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_70nuv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.17261675, 0.98498905, 0, -0.98498905, -0.17261675, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="Player" parent="." instance=ExtResource("1_lmwx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9588013, 4.1721983, -9.918527)
+
+[node name="BaseProp" parent="." instance=ExtResource("2_hc2lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0651026, 1.499999, -7.386674)
+
+[node name="BaseProp2" parent="." instance=ExtResource("2_hc2lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.79337, 1.499999, -7.386674)
