@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=9 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
 [ext_resource type="PackedScene" uid="uid://buxe8scb2ktls" path="res://GameData/LevelIngredient/BaseProp.tscn" id="2_hc2lk"]
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
+[ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc2lk"]
 albedo_color = Color(0.03955078, 0.140625, 0.08377075, 1)
@@ -44,12 +45,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.79337, 1.499999, -7.386674
 [node name="CanonTv" parent="." instance=ExtResource("1_0efhf")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -8.1790905, 1.5, 4.9697614)
 
-[node name="Container" type="Container" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="Container"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+offset_right = 50.630005
+offset_bottom = 23.0
 text = "test"
 script = ExtResource("4_w8qkj")
+
+[node name="CenterCross" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_x0rsi")
+expand_mode = 1
