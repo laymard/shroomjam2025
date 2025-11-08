@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
 		target_velocity.y = target_velocity.y - (75*delta)
 	
-		# Jumping.
+	# Jumping.
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 
