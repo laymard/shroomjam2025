@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://0fgvhm6caos1"]
+
+[ext_resource type="Script" uid="uid://bgjeytaafiaev" path="res://GameData/Enemy/GMBaseEnemy.gd" id="1_o4jvj"]
+
+[node name="BaseEnemy" type="CharacterBody3D"]
+script = ExtResource("1_o4jvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="EnemyMesh" type="MeshInstance3D" parent="Pivot"]
+
+[node name="AreaShootRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaShootRange"]
+
+[node name="AreaAutoDestroyRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAutoDestroyRange"]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu2cbfjv2w7mg"]
+
+[ext_resource type="PackedScene" uid="uid://0fgvhm6caos1" path="res://GameData/Enemy/BaseEnemy.tscn" id="1_2ng4n"]
+[ext_resource type="Material" uid="uid://dd6nbe2ssrwmr" path="res://Art/Material/M_ConcreteEnemy.tres" id="2_2trxp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ng4n"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ng4n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ng4n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2trxp"]
+
+[node name="BaseScene" instance=ExtResource("1_2ng4n")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2ng4n")
+
+[node name="EnemyMesh" parent="Pivot" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_2ng4n")
+surface_material_override/0 = ExtResource("2_2trxp")
+
+[node name="AreaShootRange" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="AreaShootRange" index="0"]
+shape = SubResource("SphereShape3D_2ng4n")
+
+[node name="AreaAutoDestroyRange" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="AreaAutoDestroyRange" index="0"]
+shape = SubResource("SphereShape3D_2trxp")
