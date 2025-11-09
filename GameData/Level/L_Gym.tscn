@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=12 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
 [ext_resource type="PackedScene" uid="uid://buxe8scb2ktls" path="res://GameData/LevelIngredient/BaseProp.tscn" id="2_hc2lk"]
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 [ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
-[ext_resource type="PackedScene" uid="uid://cw7y1p3gnly7j" path="res://GameData/Projectile/ConcreteProjectile.tscn" id="6_1kxu1"]
-[ext_resource type="PackedScene" uid="uid://dojlxke7uawwe" path="res://GameData/Turret/ConcreteTurret.tscn" id="7_he8ps"]
-[ext_resource type="PackedScene" uid="uid://bu2cbfjv2w7mg" path="res://GameData/Enemy/ConcreteEnemy.tscn" id="8_fsu67"]
+[ext_resource type="PackedScene" uid="uid://ditu8mqws4xik" path="res://GameData/Level/EnemySpawnerComponent.tscn" id="9_c88a2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_he8ps"]
 vertices = PackedVector3Array(-0.0869236, 0.49025917, -8.372047, 0.9130764, 0.49025917, -8.622047, 0.9130764, 0.49025917, -19.872047, -27.836924, 0.24025917, -19.872047, 0.9130764, 0.49025917, 19.877953, 0.9130764, 0.49025917, -6.3720474, -0.0869236, 0.49025917, -6.6220474, -27.836924, 0.24025917, 19.877953, 2.1630764, 0.49025917, -7.3720474, 10.663076, 0.49025917, -7.3720474, 10.663076, 0.49025917, -8.372047, 1.9130764, 0.49025917, -8.622047, 11.913076, 0.49025917, -8.622047, 11.913076, 0.49025917, -19.872047, 12.913076, 0.49025917, -8.372047, 27.913076, 0.24025917, -7.3720474, 27.913076, 0.24025917, -19.872047, 12.913076, 0.49025917, -7.3720474, 10.663076, 0.49025917, -6.6220474, 1.9130764, 0.49025917, -6.3720474, 11.663076, 0.49025917, 19.877953, 11.663076, 0.49025917, -6.3720474, 12.663076, 0.49025917, -6.3720474, 27.913076, 0.24025917, 19.877953)
@@ -95,24 +93,16 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("5_x0rsi")
 stretch_mode = 2
 
-[node name="BaseProjectile" parent="." instance=ExtResource("6_1kxu1")]
-transform = Transform3D(0.92155844, 0, 0.38823962, 0.23240189, 0.80104494, -0.5516488, -0.3109974, 0.59860426, 0.7382097, -15.657495, 8.3438015, -0.38263685)
+[node name="WorldComponent" type="Node" parent="."]
 
-[node name="BaseTurret" parent="." instance=ExtResource("7_he8ps")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.887513, 1, 12.142174)
+[node name="EnemySpawnerComponent" parent="WorldComponent" node_paths=PackedStringArray("EnemySpawnTransform", "EnemyTargetDestination") instance=ExtResource("9_c88a2")]
+EnemySpawnTransform = NodePath("../../EnemySpawnData/EnemySpawnPosition")
+EnemyTargetDestination = NodePath("../../EnemySpawnData/EnemyTargetDestination")
 
-[node name="BaseScene" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.775, 1, -7.999393)
-Player = NodePath("../Player")
+[node name="EnemySpawnData" type="Node" parent="."]
 
-[node name="BaseScene2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.496599, 1, -11.479)
-Player = NodePath("../Player")
+[node name="EnemySpawnPosition" type="Node3D" parent="EnemySpawnData"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.275982, 1, 0)
 
-[node name="BaseScene3" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.775, 1, -11.479)
-Player = NodePath("../Player")
-
-[node name="BaseScene4" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3211155, 1, -11.479)
-Player = NodePath("../Player")
+[node name="EnemyTargetDestination" type="Node3D" parent="EnemySpawnData"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.418232, 1, 0)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ditu8mqws4xik"]
+
+[ext_resource type="Script" uid="uid://gekqarxc402h" path="res://GameData/Level/GMWorldComponent_EnemySpawner.gd" id="1_rjghm"]
+[ext_resource type="PackedScene" uid="uid://bu2cbfjv2w7mg" path="res://GameData/Enemy/ConcreteEnemy.tscn" id="2_0brsv"]
+
+[node name="EnemySpawnerComponent" type="Node"]
+script = ExtResource("1_rjghm")
+EnemyToSpawn = ExtResource("2_0brsv")

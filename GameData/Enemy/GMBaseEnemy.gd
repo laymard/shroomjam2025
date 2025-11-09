@@ -11,17 +11,6 @@ func _ready() -> void:
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		var target_position := Vector3.ZERO
-		if(Player != null):
-			target_position = Player.global_position
-		else :
-			target_position.x = randf_range(-5,5)
-			target_position.z = randf_range(-5,5)
-
-		navigation_agent.set_target_position(target_position)
-
 func _physics_process(delta):
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
