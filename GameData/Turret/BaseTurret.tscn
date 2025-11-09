@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0wp7w7be2qas"]
+
+[ext_resource type="Script" uid="uid://b114urj32u6q" path="res://GameData/Turret/TurrentShootComponent.gd" id="1_kyv63"]
+[ext_resource type="Resource" uid="uid://basvuo641ag5v" path="res://GameData/Resources/ShootResource/BaseShootResource.tres" id="2_j7aop"]
+
+[node name="BaseTurret" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="ShootOrigin" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Component" type="Node" parent="."]
+
+[node name="TurrentShootComponent" type="Node" parent="Component"]
+script = ExtResource("1_kyv63")
+ShootResource = ExtResource("2_j7aop")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

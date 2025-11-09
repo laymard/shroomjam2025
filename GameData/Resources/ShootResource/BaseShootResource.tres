@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GMShootResource" load_steps=2 format=3 uid="uid://basvuo641ag5v"]
+
+[ext_resource type="Script" uid="uid://capttxpj7meyw" path="res://GameData/Resources/GMShootResource.gd" id="1_yp5fj"]
+
+[resource]
+script = ExtResource("1_yp5fj")
+metadata/_custom_type_script = "uid://capttxpj7meyw"

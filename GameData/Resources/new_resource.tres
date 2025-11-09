@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GMTurretResource" load_steps=3 format=3 uid="uid://cxsf8bbyjtihy"]
+
+[ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_01est"]
+[ext_resource type="Script" uid="uid://c686xoal1kt3y" path="res://GameData/Resources/GMTurretResource.gd" id="1_n6v42"]
+
+[resource]
+script = ExtResource("1_n6v42")
+health = 1
+scene = ExtResource("1_01est")
+metadata/_custom_type_script = "uid://c686xoal1kt3y"

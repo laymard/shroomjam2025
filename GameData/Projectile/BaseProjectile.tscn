@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://21qxgsru2ikv"]
+
+[ext_resource type="Script" uid="uid://dibahj6xk4wqy" path="res://GameData/Projectile/GMProjectileComponent.gd" id="1_5of4c"]
+[ext_resource type="Script" uid="uid://31tgdfgtxec7" path="res://GameData/Projectile/GMBaseProjectile.gd" id="1_ru88x"]
+
+[node name="BaseProjectile" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_ru88x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Component" type="Node" parent="."]
+
+[node name="ProjectileComponent" type="Node" parent="Component"]
+script = ExtResource("1_5of4c")

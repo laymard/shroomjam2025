@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GMTurretResource" load_steps=2 format=3 uid="uid://dmdxy5x31w24j"]
+
+[ext_resource type="Script" uid="uid://c686xoal1kt3y" path="res://GameData/Resources/GMTurretResource.gd" id="1_yt44j"]
+
+[resource]
+script = ExtResource("1_yt44j")
+metadata/_custom_type_script = "uid://c686xoal1kt3y"

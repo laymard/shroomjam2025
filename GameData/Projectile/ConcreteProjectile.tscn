@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw7y1p3gnly7j"]
+
+[ext_resource type="PackedScene" uid="uid://21qxgsru2ikv" path="res://GameData/Projectile/BaseProjectile.tscn" id="1_oewh6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oewh6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_oewh6"]
+
+[node name="BaseProjectile" instance=ExtResource("1_oewh6")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_oewh6")
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_oewh6")
