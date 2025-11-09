@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=16 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c3tk6p6irb0tc" path="res://GameData/DefensiveObjective/ConcreteDefensiveObjective.tscn" id="1_1kxu1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 [ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
+[ext_resource type="Script" uid="uid://bkeogfhavgh6o" path="res://GameData/Level/GMUIShowHelp.gd" id="7_fsu67"]
 [ext_resource type="PackedScene" uid="uid://ditu8mqws4xik" path="res://GameData/Level/EnemySpawnerComponent.tscn" id="9_c88a2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_he8ps"]
@@ -154,15 +155,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control"]
-layout_mode = 1
+layout_mode = 0
 offset_right = 50.630005
 offset_bottom = 23.0
 text = "test"
 script = ExtResource("4_w8qkj")
 
 [node name="CenterCross" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -176,6 +176,64 @@ grow_vertical = 2
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("5_x0rsi")
 stretch_mode = 2
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("7_fsu67")
+
+[node name="PressForHelp" type="Panel" parent="Control/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58.47, 29.23)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -164.00003
+offset_top = -29.23
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/Control/PressForHelp"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0517578e-05
+offset_right = 123.0
+offset_bottom = 23.00003
+text = "press [H] for help"
+
+[node name="HelpMessage" type="Panel" parent="Control/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58.47, 29.23)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -371.0
+offset_top = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Control/HelpMessage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Protect the totem
+Get TVs (black blocks) and click left to place them
+kill enemies before they do damage to the totem"
 
 [node name="WorldComponent" type="Node" parent="."]
 
