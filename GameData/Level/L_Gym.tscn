@@ -232,8 +232,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Protect the totem
-Get TVs (black blocks) and click left to place them
-kill enemies before they do damage to the totem"
+Get TVs (black blocks) and left-click  to place them
+Kill enemies before they do damage to the totem"
 
 [node name="WorldComponent" type="Node" parent="."]
 
