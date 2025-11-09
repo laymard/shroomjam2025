@@ -1,3 +1,4 @@
+class_name GMBaseProjectile
 extends RigidBody3D
 
 

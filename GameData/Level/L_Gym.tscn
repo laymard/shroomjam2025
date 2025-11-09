@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=11 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 [ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
 [ext_resource type="PackedScene" uid="uid://cw7y1p3gnly7j" path="res://GameData/Projectile/ConcreteProjectile.tscn" id="6_1kxu1"]
+[ext_resource type="PackedScene" uid="uid://dojlxke7uawwe" path="res://GameData/Turret/ConcreteTurret.tscn" id="7_he8ps"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc2lk"]
 albedo_color = Color(0.03955078, 0.140625, 0.08377075, 1)
@@ -80,3 +81,6 @@ stretch_mode = 2
 
 [node name="BaseProjectile" parent="." instance=ExtResource("6_1kxu1")]
 transform = Transform3D(0.92155844, 0, 0.38823962, 0.23240189, 0.80104494, -0.5516488, -0.3109974, 0.59860426, 0.7382097, -15.657495, 8.3438015, -0.38263685)
+
+[node name="BaseTurret" parent="." instance=ExtResource("7_he8ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.887513, 1, 12.142174)

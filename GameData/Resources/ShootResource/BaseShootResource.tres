@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="GMShootResource" load_steps=2 format=3 uid="uid://basvuo641ag5v"]
+[gd_resource type="Resource" script_class="GMShootResource" load_steps=3 format=3 uid="uid://basvuo641ag5v"]
 
+[ext_resource type="PackedScene" uid="uid://cw7y1p3gnly7j" path="res://GameData/Projectile/ConcreteProjectile.tscn" id="1_r33c2"]
 [ext_resource type="Script" uid="uid://capttxpj7meyw" path="res://GameData/Resources/GMShootResource.gd" id="1_yp5fj"]
 
 [resource]
 script = ExtResource("1_yp5fj")
+rate_of_fire = 1.0
+projectile = ExtResource("1_r33c2")
 metadata/_custom_type_script = "uid://capttxpj7meyw"

@@ -8,6 +8,7 @@
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
 [node name="ShootOrigin" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
@@ -17,6 +18,10 @@
 script = ExtResource("1_kyv63")
 ShootResource = ExtResource("2_j7aop")
 
+[node name="Timer" type="Timer" parent="Component/TurrentShootComponent"]
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+
+[connection signal="timeout" from="Component/TurrentShootComponent/Timer" to="Component/TurrentShootComponent" method="_on_timer_timeout"]
