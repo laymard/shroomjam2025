@@ -5,6 +5,14 @@ extends CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 @export var Player:GMPlayer
 
+@onready var TurretShootComponent:GMTurretShootComponent= %GMTurretShootComponent
+
+# private
+var _currentAimedTurret: GMBaseTurret
+
+func _process(delta: float) -> void:
+	_orient_to_aimed_turret()
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
@@ -36,4 +44,44 @@ func _on_navigation_agent_3d_target_reached() -> void:
 	
 func _self_explode() -> void:
 	queue_free()
+	pass
+
+
+func _on_area_shoot_range_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	if _currentAimedTurret != null:
+		return
+	
+	var parentNode3D:Node3D = body.get_parent_node_3d()
+	if  body is GMBaseTurret:
+		var turretDetected: GMBaseTurret = body as GMBaseTurret
+		_set_current_aim_target(turretDetected)
+		
+	print_debug(body)
+	pass # Replace with function body.
+
+
+func _on_area_shoot_range_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	if  body is GMBaseTurret and body==_currentAimedTurret:
+		_set_current_aim_target(null)
+	pass # Replace with function body.
+
+func _orient_to_aimed_turret()->void:
+	if _currentAimedTurret == null:
+		return
+	var orientation:Vector3 = _currentAimedTurret.global_position - global_position
+	orientation *= Vector3(1,0,1)
+	%Pivot.transform = %Pivot.transform.looking_at(orientation)
+	pass
+	
+func _set_current_aim_target(target:GMBaseTurret)->void:
+	var oldTurret = _currentAimedTurret
+	
+	_currentAimedTurret = target
+	_on_turret_changed(oldTurret, _currentAimedTurret)
+	
+	pass
+
+func _on_turret_changed(oldTurret:GMBaseTurret, newTurret:GMBaseTurret)->void:
+	var hasTurret:bool = newTurret != null
+	TurretShootComponent.set_auto_shoot_enabled(hasTurret)
 	pass

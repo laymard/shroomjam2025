@@ -108,6 +108,9 @@ jump_impulse = 25
 [node name="CanonTv" parent="." instance=ExtResource("1_0efhf")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -8.1790905, 1.5, 4.9697614)
 
+[node name="CanonTv2" parent="." instance=ExtResource("1_0efhf")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -17.854654, 1.5, 4.9697614)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15

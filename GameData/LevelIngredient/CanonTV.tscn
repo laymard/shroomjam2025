@@ -12,6 +12,8 @@ radius = 1.971
 
 [node name="CanonTv" type="RigidBody3D"]
 disable_mode = 2
+collision_layer = 32
+collision_mask = 31
 can_sleep = false
 script = ExtResource("1_o3bc7")
 
@@ -23,6 +25,8 @@ surface_material_override/0 = ExtResource("1_xmj7p")
 shape = SubResource("BoxShape3D_tp48g")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_xmj7p")

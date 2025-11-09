@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://31tgdfgtxec7" path="res://GameData/Projectile/GMBaseProjectile.gd" id="1_ru88x"]
 
 [node name="BaseProjectile" type="RigidBody3D"]
+collision_layer = 16
+collision_mask = 39
 gravity_scale = 0.0
 script = ExtResource("1_ru88x")
 

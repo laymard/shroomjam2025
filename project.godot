@@ -54,6 +54,16 @@ fire_first={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="WorldStatic"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Canon"
+3d_physics/layer_4="Enemy"
+3d_physics/layer_5="Projectile"
+3d_physics/layer_6="Collectible"
+3d_physics/layer_7="Area"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,18 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://0fgvhm6caos1"]
+[gd_scene load_steps=5 format=3 uid="uid://0fgvhm6caos1"]
 
 [ext_resource type="Script" uid="uid://bgjeytaafiaev" path="res://GameData/Enemy/GMBaseEnemy.gd" id="1_o4jvj"]
 [ext_resource type="Script" uid="uid://dfkixaqi3bd68" path="res://GameData/Enemy/GMDestroyOnDestination.gd" id="2_5vs1y"]
+[ext_resource type="Script" uid="uid://b114urj32u6q" path="res://GameData/Turret/TurrentShootComponent.gd" id="3_kapmo"]
+[ext_resource type="Resource" uid="uid://basvuo641ag5v" path="res://GameData/Resources/ShootResource/BaseShootResource.tres" id="4_nfjuy"]
 
 [node name="BaseEnemy" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 75
 script = ExtResource("1_o4jvj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
 [node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="EnemyMesh" type="MeshInstance3D" parent="Pivot"]
 
+[node name="ShootOrigin" type="Node3D" parent="Pivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42871153, -0.65280247)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/ShootOrigin"]
+
 [node name="AreaShootRange" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaShootRange"]
 
@@ -28,4 +41,15 @@ debug_enabled = true
 [node name="DestroyOnDestination" type="Node" parent="Components"]
 script = ExtResource("2_5vs1y")
 
+[node name="GMTurretShootComponent" type="Node" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("3_kapmo")
+ShootResource = ExtResource("4_nfjuy")
+AutoStartShoot = false
+metadata/_custom_type_script = "uid://b114urj32u6q"
+
+[node name="Timer" type="Timer" parent="Components/GMTurretShootComponent"]
+
+[connection signal="body_shape_entered" from="AreaShootRange" to="." method="_on_area_shoot_range_body_shape_entered"]
+[connection signal="body_shape_exited" from="AreaShootRange" to="." method="_on_area_shoot_range_body_shape_exited"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
