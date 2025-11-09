@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=15 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c3tk6p6irb0tc" path="res://GameData/DefensiveObjective/ConcreteDefensiveObjective.tscn" id="1_1kxu1"]
+[ext_resource type="Script" uid="uid://bxg5xsl18st3w" path="res://GameData/Level/GMLevelFlow.gd" id="1_he8ps"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 [ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
@@ -29,6 +30,7 @@ data = PackedVector3Array(-0.5, -0.83636475, 2.5532303, -0.5, -0.83636475, -2.55
 data = PackedVector3Array(-0.5, -0.83636475, 26.777437, -0.5, -0.83636475, -26.777437, -0.5, 0.83636475, -26.777437, 0.5, -0.83636475, -26.777437, -0.5, -0.83636475, -26.777437, -0.5, -0.83636475, 26.777437, -0.5, 0.83636475, -26.777437, -0.5, -0.83636475, -26.777437, 0.5, -0.83636475, -26.777437, -0.5, 0.83636475, -26.777437, -0.5, 0.83636475, 26.777437, -0.5, -0.83636475, 26.777437, -0.5, -0.83636475, 26.777437, -0.5, 0.83636475, 26.777437, 0.5, 0.83636475, 26.777437, 0.5, 0.83636475, 26.777437, -0.5, 0.83636475, 26.777437, -0.5, 0.83636475, -26.777437, -0.5, -0.83636475, 26.777437, 0.5, -0.83636475, 26.777437, 0.5, -0.83636475, -26.777437, 0.5, 0.83636475, 26.777437, 0.5, -0.83636475, 26.777437, -0.5, -0.83636475, 26.777437, 0.5, -0.83636475, -26.777437, 0.5, -0.83636475, 26.777437, 0.5, 0.83636475, 26.777437, 0.5, -0.83636475, -26.777437, 0.5, 0.83636475, -26.777437, -0.5, 0.83636475, -26.777437, -0.5, 0.83636475, -26.777437, 0.5, 0.83636475, -26.777437, 0.5, 0.83636475, 26.777437, 0.5, 0.83636475, 26.777437, 0.5, 0.83636475, -26.777437, 0.5, -0.83636475, -26.777437)
 
 [node name="Root" type="Node3D"]
+script = ExtResource("1_he8ps")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2597408, 0)
@@ -151,6 +153,7 @@ stretch_mode = 2
 [node name="WorldComponent" type="Node" parent="."]
 
 [node name="EnemySpawnerComponent" parent="WorldComponent" node_paths=PackedStringArray("EnemySpawnTransform", "EnemyTargetDestination") instance=ExtResource("9_c88a2")]
+unique_name_in_owner = true
 EnemySpawnTransform = NodePath("../../EnemySpawnData/EnemySpawnPosition")
 EnemyTargetDestination = NodePath("../../EnemySpawnData/EnemyTargetDestination")
 
@@ -161,3 +164,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.275982, 1, 0)
 
 [node name="EnemyTargetDestination" type="Node3D" parent="EnemySpawnData"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.603497, 1, -0.6210308)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="StartSpawningEnemyWave" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="DelayBetweenSingleEnemySpawning" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="DelayBetweenWaves" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timers/StartSpawningEnemyWave" to="." method="_on_start_spawning_enemy_wave_timeout"]
+[connection signal="timeout" from="Timers/DelayBetweenSingleEnemySpawning" to="." method="_on_delay_between_single_enemy_spawning_timeout"]
+[connection signal="timeout" from="Timers/DelayBetweenWaves" to="." method="_on_delay_between_waves_timeout"]

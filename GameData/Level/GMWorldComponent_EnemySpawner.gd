@@ -9,10 +9,6 @@ extends Node
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		_spawn_enemy()
-
 func _spawn_enemy() -> void:
 	var enemyInstance:GMBaseEnemy = EnemyToSpawn.instantiate()
 	enemyInstance.transform = EnemySpawnTransform.transform
