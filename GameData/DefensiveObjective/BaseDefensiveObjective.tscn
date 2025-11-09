@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddsojaynkayxg"]
+
+[ext_resource type="Script" uid="uid://wmyragsvqaol" path="res://GameData/DefensiveObjective/GMBaseDefensiveObjective.gd" id="1_kbver"]
+[ext_resource type="Script" uid="uid://cdtvkm2nev67l" path="res://GameData/Health/GMHealthComponent.gd" id="1_t18xc"]
+[ext_resource type="Script" uid="uid://ccuvkjecs2xoo" path="res://GameData/Health/GMHealth.gd" id="3_u8pr6"]
+[ext_resource type="PackedScene" uid="uid://bbt5c6csa7vwm" path="res://GameData/Health/GMWorldHealthBar.tscn" id="4_61njs"]
+
+[sub_resource type="Resource" id="Resource_61njs"]
+script = ExtResource("3_u8pr6")
+Health = 50.0
+metadata/_custom_type_script = "uid://ccuvkjecs2xoo"
+
+[node name="BaseDefensiveObjective" type="StaticBody3D"]
+script = ExtResource("1_kbver")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Components" type="Node" parent="."]
+
+[node name="GMHealthComponent" type="Node" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("1_t18xc")
+GMHealthData = SubResource("Resource_61njs")
+metadata/_custom_type_script = "uid://cdtvkm2nev67l"
+
+[node name="HealthBarContainer" parent="." node_paths=PackedStringArray("HealthComponent") instance=ExtResource("4_61njs")]
+HealthComponent = NodePath("../Components/GMHealthComponent")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -38,6 +38,7 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaShootRange"]
 
 [node name="AreaAutoDestroyRange" type="Area3D" parent="."]
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAutoDestroyRange"]
 
@@ -68,5 +69,6 @@ HealthComponent = NodePath("../Components/GMHealthComponent")
 
 [connection signal="body_shape_entered" from="AreaShootRange" to="." method="_on_area_shoot_range_body_shape_entered"]
 [connection signal="body_shape_exited" from="AreaShootRange" to="." method="_on_area_shoot_range_body_shape_exited"]
+[connection signal="body_shape_entered" from="AreaAutoDestroyRange" to="." method="_on_area_auto_destroy_range_body_shape_entered"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="health_changed" from="Components/GMHealthComponent" to="." method="_on_gm_health_component_health_changed"]

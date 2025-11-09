@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 @export var Player:GMPlayer
 @onready var HealthComponent:GMHealthComponent = %GMHealthComponent
+@export var SelfDestroyDamage: float = 10
 
 @onready var TurretShootComponent:GMTurretShootComponent= %GMTurretShootComponent
 
@@ -89,5 +90,13 @@ func _on_turret_changed(oldTurret:GMBaseTurret, newTurret:GMBaseTurret)->void:
 
 func _on_gm_health_component_health_changed(oldValue: float, newvalue: float) -> void:
 	if (newvalue == 0):
+		queue_free()
+	pass # Replace with function body.
+
+
+func _on_area_auto_destroy_range_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	if  body is GMBaseDefensiveObjective:
+		var defensiveHealthComponent:GMHealthComponent = (body as GMBaseDefensiveObjective).HealthComponent
+		defensiveHealthComponent._applyDamage(SelfDestroyDamage, self)
 		queue_free()
 	pass # Replace with function body.

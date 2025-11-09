@@ -13,6 +13,7 @@
 radius = 7.014
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2trxp"]
+radius = 1.643
 
 [node name="BaseScene" instance=ExtResource("1_2ng4n")]
 

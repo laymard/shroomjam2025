@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=14 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
+[ext_resource type="PackedScene" uid="uid://c3tk6p6irb0tc" path="res://GameData/DefensiveObjective/ConcreteDefensiveObjective.tscn" id="1_1kxu1"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 [ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
@@ -95,6 +96,9 @@ size = Vector3(1, 1.6727295, 53.554874)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33636475, -13.146204)
 shape = SubResource("ConcavePolygonShape3D_he8ps")
 
+[node name="BaseDefensiveObjective" parent="NavigationRegion3D/Walls" instance=ExtResource("1_1kxu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.163784, -0.25974083, -0.40771133)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.17261675, 0.98498905, 0, -0.98498905, -0.17261675, 0, 0, 0)
 shadow_enabled = true
@@ -156,4 +160,4 @@ EnemyTargetDestination = NodePath("../../EnemySpawnData/EnemyTargetDestination")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.275982, 1, 0)
 
 [node name="EnemyTargetDestination" type="Node3D" parent="EnemySpawnData"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.880184, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.603497, 1, -0.6210308)

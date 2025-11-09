@@ -8,7 +8,8 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ShootTimer.wait_time = ShootResource.rate_of_fire
-	ShootTimer.timeout.connect(_on_timer_timeout)
+	if not ShootTimer.timeout.is_connected(_on_timer_timeout):
+		ShootTimer.timeout.connect(_on_timer_timeout)
 	if(AutoStartShoot):
 		ShootTimer.start()
 	pass # Replace with function body.

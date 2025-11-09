@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3tk6p6irb0tc"]
+
+[ext_resource type="PackedScene" uid="uid://ddsojaynkayxg" path="res://GameData/DefensiveObjective/BaseDefensiveObjective.tscn" id="1_f5dlw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5dlw"]
+size = Vector3(0.58636475, 2.7020264, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f5dlw"]
+size = Vector3(1, 2.702, 1)
+
+[node name="BaseDefensiveObjective" instance=ExtResource("1_f5dlw")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047210693, 1.380198, 0)
+shape = SubResource("BoxShape3D_f5dlw")
+
+[node name="HealthBarContainer" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3860688, 0)
+mesh = SubResource("BoxMesh_f5dlw")
