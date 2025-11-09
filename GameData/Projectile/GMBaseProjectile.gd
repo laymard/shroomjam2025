@@ -9,10 +9,6 @@ func _ready() -> void:
 	contact_monitor = true
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	linear_velocity = state.transform.basis * Vector3.FORWARD * ProjectileSpeed
 
