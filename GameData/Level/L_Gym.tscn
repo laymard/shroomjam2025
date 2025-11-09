@@ -105,4 +105,4 @@ EnemyTargetDestination = NodePath("../../EnemySpawnData/EnemyTargetDestination")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.275982, 1, 0)
 
 [node name="EnemyTargetDestination" type="Node3D" parent="EnemySpawnData"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.418232, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.435724, 1, 0)

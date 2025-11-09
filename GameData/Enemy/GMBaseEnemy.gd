@@ -28,3 +28,12 @@ func _physics_process(delta):
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 	move_and_slide()
+
+
+func _on_navigation_agent_3d_target_reached() -> void:
+	_self_explode()
+	pass # Replace with function body.
+	
+func _self_explode() -> void:
+	queue_free()
+	pass

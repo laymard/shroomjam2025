@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0fgvhm6caos1"]
+[gd_scene load_steps=3 format=3 uid="uid://0fgvhm6caos1"]
 
 [ext_resource type="Script" uid="uid://bgjeytaafiaev" path="res://GameData/Enemy/GMBaseEnemy.gd" id="1_o4jvj"]
+[ext_resource type="Script" uid="uid://dfkixaqi3bd68" path="res://GameData/Enemy/GMDestroyOnDestination.gd" id="2_5vs1y"]
 
 [node name="BaseEnemy" type="CharacterBody3D"]
 script = ExtResource("1_o4jvj")
@@ -21,3 +22,10 @@ script = ExtResource("1_o4jvj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[node name="Components" type="Node" parent="."]
+
+[node name="DestroyOnDestination" type="Node" parent="Components"]
+script = ExtResource("2_5vs1y")
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
