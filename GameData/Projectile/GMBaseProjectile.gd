@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	linear_velocity = state.transform.basis * Vector3(0,0,10)
+	linear_velocity = state.transform.basis * Vector3.FORWARD * 10

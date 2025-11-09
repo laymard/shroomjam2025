@@ -13,7 +13,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51025975, 0)
 shape = SubResource("BoxShape3D_q1pge")
 
 [node name="ShootOrigin" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56497824, 0.92279786)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56497824, -1.5972466)
 
 [node name="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52918494, 0)

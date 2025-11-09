@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 	var deltaTime = get_process_delta_time()
 	if event is InputEventMouseMotion:
 		$CameraPivot_rotateY.rotate_y(-event.relative.x * camera_sensitivity * deltaTime)
-		%CameraPivot_rotateX.rotate_x(event.relative.y * camera_sensitivity * deltaTime)
+		%CameraPivot_rotateX.rotate_x(-event.relative.y * camera_sensitivity * deltaTime)
 		var angle:float = %CameraPivot_rotateX.basis.get_euler().x
 		angle = clamp(angle, deg_to_rad(-90), deg_to_rad(90))
 		%CameraPivot_rotateX.rotation.x = angle
@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		# Setting the basis property will affect the rotation of the node.
-		$Pivot.basis = Basis.looking_at(-direction)
+		$Pivot.basis = Basis.looking_at(direction)
 	
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
