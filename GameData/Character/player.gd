@@ -56,9 +56,7 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	
 	if direction != Vector3.ZERO:
-		direction = direction.normalized()
-		# Setting the basis property will affect the rotation of the node.
-		$Pivot.basis = Basis.looking_at(direction)
+		%Pivot.global_rotation = Basis.looking_at(direction).get_euler()
 	
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
