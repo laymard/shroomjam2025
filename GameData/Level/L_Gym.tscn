@@ -99,6 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33636475, -13.146204)
 shape = SubResource("ConcavePolygonShape3D_he8ps")
 
 [node name="BaseDefensiveObjective" parent="NavigationRegion3D/Walls" instance=ExtResource("1_1kxu1")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.163784, -0.25974083, -0.40771133)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
