@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0fgvhm6caos1"]
+[gd_scene load_steps=9 format=3 uid="uid://0fgvhm6caos1"]
 
 [ext_resource type="Script" uid="uid://bgjeytaafiaev" path="res://GameData/Enemy/GMBaseEnemy.gd" id="1_o4jvj"]
 [ext_resource type="Script" uid="uid://dfkixaqi3bd68" path="res://GameData/Enemy/GMDestroyOnDestination.gd" id="2_5vs1y"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://basvuo641ag5v" path="res://GameData/Resources/ShootResource/BaseShootResource.tres" id="4_nfjuy"]
 [ext_resource type="Script" uid="uid://cdtvkm2nev67l" path="res://GameData/Health/GMHealthComponent.gd" id="5_syreb"]
 [ext_resource type="Script" uid="uid://ccuvkjecs2xoo" path="res://GameData/Health/GMHealth.gd" id="6_yp3bb"]
+[ext_resource type="PackedScene" uid="uid://bbt5c6csa7vwm" path="res://GameData/Health/GMWorldHealthBar.tscn" id="7_jedld"]
 
 [sub_resource type="Resource" id="Resource_jedld"]
 script = ExtResource("6_yp3bb")
@@ -61,6 +62,9 @@ metadata/_custom_type_script = "uid://b114urj32u6q"
 unique_name_in_owner = true
 script = ExtResource("5_syreb")
 GMHealthData = SubResource("Resource_jedld")
+
+[node name="HealthBarContainer" parent="." node_paths=PackedStringArray("HealthComponent") instance=ExtResource("7_jedld")]
+HealthComponent = NodePath("../Components/GMHealthComponent")
 
 [connection signal="body_shape_entered" from="AreaShootRange" to="." method="_on_area_shoot_range_body_shape_entered"]
 [connection signal="body_shape_exited" from="AreaShootRange" to="." method="_on_area_shoot_range_body_shape_exited"]

@@ -48,3 +48,6 @@ shape = SubResource("SphereShape3D_2trxp")
 avoidance_enabled = true
 radius = 1.0
 max_neighbors = 2
+
+[node name="HealthBarContainer" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5390515, 0)
