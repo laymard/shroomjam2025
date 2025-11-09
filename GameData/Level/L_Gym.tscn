@@ -72,6 +72,7 @@ shape = SubResource("ConcavePolygonShape3D_1kxu1")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D/Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.473665, 0, 10.240488)
+collision_mask = 17
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Walls/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33636475, -13.146204)

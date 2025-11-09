@@ -1,6 +1,7 @@
 class_name GMBaseTurret
 extends StaticBody3D
 
+@onready var HealthComponent:GMHealthComponent = %GMHealthComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

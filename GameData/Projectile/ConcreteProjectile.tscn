@@ -7,6 +7,9 @@
 [sub_resource type="SphereMesh" id="SphereMesh_oewh6"]
 
 [node name="BaseProjectile" instance=ExtResource("1_oewh6")]
+contact_monitor = true
+max_contacts_reported = 10
+ProjectileDamage = 5.0
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("SphereShape3D_oewh6")

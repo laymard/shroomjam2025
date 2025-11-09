@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0wp7w7be2qas"]
+[gd_scene load_steps=7 format=3 uid="uid://b0wp7w7be2qas"]
 
 [ext_resource type="Script" uid="uid://d06qfg0gkuh0k" path="res://GameData/Turret/GMBaseTurret.gd" id="1_ery73"]
 [ext_resource type="Script" uid="uid://b114urj32u6q" path="res://GameData/Turret/TurrentShootComponent.gd" id="1_kyv63"]
 [ext_resource type="Resource" uid="uid://basvuo641ag5v" path="res://GameData/Resources/ShootResource/BaseShootResource.tres" id="2_j7aop"]
+[ext_resource type="Script" uid="uid://ccuvkjecs2xoo" path="res://GameData/Health/GMHealth.gd" id="2_luey6"]
+[ext_resource type="Script" uid="uid://cdtvkm2nev67l" path="res://GameData/Health/GMHealthComponent.gd" id="5_dkbxo"]
+
+[sub_resource type="Resource" id="Resource_dkbxo"]
+script = ExtResource("2_luey6")
+Health = 10.0
+metadata/_custom_type_script = "uid://ccuvkjecs2xoo"
 
 [node name="BaseTurret" type="StaticBody3D"]
 collision_layer = 4
@@ -23,6 +30,11 @@ script = ExtResource("1_kyv63")
 ShootResource = ExtResource("2_j7aop")
 
 [node name="Timer" type="Timer" parent="Component/TurrentShootComponent"]
+
+[node name="GMHealthComponent" type="Node" parent="Component"]
+unique_name_in_owner = true
+script = ExtResource("5_dkbxo")
+GMHealthData = SubResource("Resource_dkbxo")
 
 [node name="Area3D" type="Area3D" parent="."]
 
