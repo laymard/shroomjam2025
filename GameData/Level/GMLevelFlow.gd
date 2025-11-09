@@ -8,12 +8,6 @@ var _remainingEnemyToSpawn:int = 0
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_start_spawning_enemy_wave_timeout() -> void:
 	_remainingEnemyToSpawn = EnemiesToSpawn
 	%DelayBetweenSingleEnemySpawning.start()
@@ -28,9 +22,15 @@ func _on_delay_between_single_enemy_spawning_timeout() -> void:
 	if (_remainingEnemyToSpawn==0):
 		%DelayBetweenSingleEnemySpawning.stop()
 		%DelayBetweenWaves.start()
+		
 	pass # Replace with function body.
 
 
 func _on_delay_between_waves_timeout() -> void:
 	_on_start_spawning_enemy_wave_timeout()
 	pass # Replace with function body.
+	
+func _unhandled_input(event):
+	# Replace "ui_accept" with your custom action name if you created one
+	if event.is_action_pressed("restart_level"):
+		get_tree().reload_current_scene()

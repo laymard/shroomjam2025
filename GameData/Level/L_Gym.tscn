@@ -108,7 +108,7 @@ directional_shadow_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_lmwx3")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9588013, 4.1721983, -9.918527)
+transform = Transform3D(0.19678469, 0, -0.98044676, 0, 1, 0, 0.98044676, 0, 0.19678469, -19.603012, 4.1721983, -5.945815)
 fall_acceleration = 50
 jump_impulse = 25
 

@@ -12,6 +12,6 @@ func _ready() -> void:
 func _spawn_enemy() -> void:
 	var enemyInstance:GMBaseEnemy = EnemyToSpawn.instantiate()
 	enemyInstance.transform = EnemySpawnTransform.transform
-	get_tree().get_root().add_child(enemyInstance)
+	get_tree().current_scene.add_child(enemyInstance)
 	enemyInstance.set_movement_target(EnemyTargetDestination.global_position)
 	

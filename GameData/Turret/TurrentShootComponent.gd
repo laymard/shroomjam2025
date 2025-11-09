@@ -21,7 +21,7 @@ func _on_timer_timeout() -> void:
 func _shoot_projectile(origin:Transform3D)->void:
 	var projectileInstance:GMBaseProjectile = ShootResource.projectile.instantiate()
 	projectileInstance.transform = origin
-	get_tree().get_root().add_child(projectileInstance)
+	get_tree().current_scene.add_child(projectileInstance)
 	pass
 
 func set_auto_shoot_enabled(isEnabled:bool) ->void:

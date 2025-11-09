@@ -26,7 +26,7 @@ func _tryToPlaceTv() -> void:
 	var canonToInstantiate:Node3D = tvtoPlace.instantiate()
 	canonToInstantiate.global_position = placementPoint
 	canonToInstantiate.rotation = Vector3(0, %RayCast3D.global_rotation.y,0)
-	get_tree().get_root().add_child(canonToInstantiate)
+	get_tree().current_scene.add_child(canonToInstantiate)
 	Inventory.remove_tv(1)
 	pass
 		
