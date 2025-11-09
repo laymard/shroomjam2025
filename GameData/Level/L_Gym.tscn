@@ -102,5 +102,17 @@ transform = Transform3D(0.92155844, 0, 0.38823962, 0.23240189, 0.80104494, -0.55
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.887513, 1, 12.142174)
 
 [node name="BaseScene" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.775, 1, -7.999393)
+Player = NodePath("../Player")
+
+[node name="BaseScene2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.496599, 1, -11.479)
+Player = NodePath("../Player")
+
+[node name="BaseScene3" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.775, 1, -11.479)
+Player = NodePath("../Player")
+
+[node name="BaseScene4" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_fsu67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3211155, 1, -11.479)
 Player = NodePath("../Player")
