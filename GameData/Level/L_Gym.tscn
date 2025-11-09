@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://4r0noqn8d7ej"]
+[gd_scene load_steps=13 format=3 uid="uid://4r0noqn8d7ej"]
 
 [ext_resource type="PackedScene" uid="uid://di8en2gxssdll" path="res://GameData/LevelIngredient/CanonTV.tscn" id="1_0efhf"]
 [ext_resource type="PackedScene" uid="uid://c8xxkqobu0ogu" path="res://GameData/Character/Player.tscn" id="1_lmwx3"]
-[ext_resource type="PackedScene" uid="uid://buxe8scb2ktls" path="res://GameData/LevelIngredient/BaseProp.tscn" id="2_hc2lk"]
 [ext_resource type="Script" uid="uid://cw5tgb6vvm4si" path="res://GameData/Level/GMDisplayInventory.gd" id="4_w8qkj"]
 [ext_resource type="Texture2D" uid="uid://cm5cfvl7n3m4j" path="res://Art/Texture/crosshair.png" id="5_x0rsi"]
 [ext_resource type="PackedScene" uid="uid://ditu8mqws4xik" path="res://GameData/Level/EnemySpawnerComponent.tscn" id="9_c88a2"]
@@ -46,12 +45,6 @@ mesh = SubResource("BoxMesh_70nuv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_70nuv")
-
-[node name="BaseProp" parent="NavigationRegion3D" instance=ExtResource("2_hc2lk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0651026, 0.24025822, -7.386674)
-
-[node name="BaseProp2" parent="NavigationRegion3D" instance=ExtResource("2_hc2lk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.79337, 0.24025822, -7.386674)
 
 [node name="Walls" type="Node3D" parent="NavigationRegion3D"]
 
