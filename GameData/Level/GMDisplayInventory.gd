@@ -5,7 +5,7 @@ extends Label
 @onready
 var Player:GMPlayer = %Player
 
-var _inventoryFormat:String = "TV count : %s \n VHS count : %s"
+var _inventoryFormat:String = "TV count : %s \nVHS count : %s"
 
 func _ready() -> void:
 	
