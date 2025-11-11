@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqq6pj8yhl0rs"]
+
+[ext_resource type="PackedScene" uid="uid://bpx33ixoo1c5d" path="res://Raw/Blender/rubberduck.blend" id="1_i2lai"]
+
+[node name="rubberduck" instance=ExtResource("1_i2lai")]
