@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c3tk6p6irb0tc"]
+[gd_scene load_steps=13 format=4 uid="uid://c3tk6p6irb0tc"]
 
 [ext_resource type="PackedScene" uid="uid://ddsojaynkayxg" path="res://GameData/DefensiveObjective/BaseDefensiveObjective.tscn" id="1_f5dlw"]
 
@@ -138,6 +138,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yf6m8")
 
+[sub_resource type="Animation" id="Animation_f5dlw"]
+resource_name = "duck_idle"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 5.140106, 0, 0.3, 1, 0, 6, 0, 0.96666664, 1, 0, 5.14, 0)
+
+[sub_resource type="Animation" id="Animation_pi7ci"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 5.140106, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_woa2y"]
+_data = {
+&"RESET": SubResource("Animation_pi7ci"),
+&"duck_idle": SubResource("Animation_f5dlw")
+}
+
 [node name="BaseDefensiveObjective" instance=ExtResource("1_f5dlw")]
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -151,6 +178,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3860688, 0)
 mesh = SubResource("BoxMesh_f5dlw")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(0.37329793, 0, 4.7252774, 0, 4.7400002, 0, -4.7252774, 0, 0.37329793, 0, 4.870758, 0)
+[node name="Duck" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(0.37329793, 0, 4.7252774, 0, 4.7400002, 0, -4.7252774, 0, 0.37329793, 0, 5.140106, 0)
 mesh = SubResource("ArrayMesh_ewaj1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Duck" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_woa2y")
+}
+autoplay = "duck_idle"
