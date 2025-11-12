@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://di8en2gxssdll"]
+[gd_scene load_steps=5 format=3 uid="uid://di8en2gxssdll"]
 
 [ext_resource type="Script" uid="uid://d1dbwg5h7nrdu" path="res://GameData/LevelIngredient/canon_tv.gd" id="1_o3bc7"]
-[ext_resource type="Material" uid="uid://cgw4caukklhar" path="res://Art/Material/TV_Material.tres" id="1_xmj7p"]
+[ext_resource type="ArrayMesh" uid="uid://cefnlw1u74ws2" path="res://Raw/Blender/tv_Sphere.res" id="2_eyq6d"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_tp48g"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tp48g"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o3bc7"]
+points = PackedVector3Array(-2.158762, 11.030249, 0.4294887, -6.71095, -3.5684562, -3.2818, 4.1567607, -3.569905, -3.2818, -6.736038, -3.5944, 3.2041602, 6.724731, -3.5944, 3.2035058, 6.209143, 4.8657, -3.0358472, 6.209143, 4.8657, 2.9635272, -6.219044, 4.8657, -3.0358472, -6.219044, 4.8657, 2.9635272, 1.9095491, 11.030249, -0.5270812, 6.701049, -3.569905, -3.2818, 4.4732876, -4.177445, 2.7821, 5.6996408, 0.627052, 3.3802, -5.7102537, -3.9375112, -2.7821, -2.6387467, 11.030249, -0.048456326, -5.7906, -4.040368, 2.732704, 5.7016487, -3.938941, -2.7821, 1.9095491, 11.030249, -0.048456326, 4.645014, 2.9237547, 3.2818, 5.7906, -4.05281, 2.7373114, -2.6387467, 11.030249, 0.4294887, 1.4309243, 11.030249, -0.5270812)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xmj7p"]
-radius = 1.971
+radius = 0.769
 
 [node name="CanonTv" type="RigidBody3D"]
 disable_mode = 2
@@ -18,11 +17,12 @@ can_sleep = false
 script = ExtResource("1_o3bc7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_tp48g")
-surface_material_override/0 = ExtResource("1_xmj7p")
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_eyq6d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_tp48g")
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_o3bc7")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 32

@@ -1,23 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://dojlxke7uawwe"]
 
 [ext_resource type="PackedScene" uid="uid://b0wp7w7be2qas" path="res://GameData/Turret/BaseTurret.tscn" id="1_q1pge"]
+[ext_resource type="ArrayMesh" uid="uid://cefnlw1u74ws2" path="res://Raw/Blender/tv_Sphere.res" id="2_jkgii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1pge"]
 size = Vector3(1, 1.7030029, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_q1pge"]
-size = Vector3(1, 1.595, 1)
-
 [node name="BaseTurret" instance=ExtResource("1_q1pge")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8617612, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1445807, 0)
 shape = SubResource("BoxShape3D_q1pge")
 
 [node name="ShootOrigin" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56497824, -1.5972466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84779775, -1.5972466)
 visible = false
 
 [node name="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8545946, 0)
-mesh = SubResource("BoxMesh_q1pge")
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 1.1374141, 0)
+mesh = ExtResource("2_jkgii")
