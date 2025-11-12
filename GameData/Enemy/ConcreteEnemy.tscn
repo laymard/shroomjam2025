@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu2cbfjv2w7mg"]
+[gd_scene load_steps=7 format=3 uid="uid://bu2cbfjv2w7mg"]
 
 [ext_resource type="PackedScene" uid="uid://0fgvhm6caos1" path="res://GameData/Enemy/BaseEnemy.tscn" id="1_2ng4n"]
-[ext_resource type="Material" uid="uid://dd6nbe2ssrwmr" path="res://Art/Material/M_ConcreteEnemy.tres" id="2_2trxp"]
+[ext_resource type="ArrayMesh" uid="uid://6hanqq636rc7" path="res://Raw/Blender/netflix_Cube.res" id="2_2trxp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ng4n"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ng4n"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_2trxp"]
 
@@ -22,9 +20,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_2ng4n")
 
 [node name="EnemyMesh" parent="Pivot" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_2ng4n")
-surface_material_override/0 = ExtResource("2_2trxp")
+transform = Transform3D(-0.365, 0, -3.1909313e-08, 0, 0.365, 0, 3.1909313e-08, 0, -0.365, 0, 1, 0)
+mesh = ExtResource("2_2trxp")
 
 [node name="ShootOrigin" parent="Pivot" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0169609, -1.6497252)
