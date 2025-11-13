@@ -68,10 +68,11 @@ func _on_area_shoot_range_body_shape_exited(body_rid: RID, body: Node3D, body_sh
 
 func _orient_to_aimed_turret()->void:
 	if _currentAimedTurret == null:
+		%Pivot.rotation = Vector3.ZERO
 		return
 	var orientation:Vector3 = _currentAimedTurret.global_position - global_position
 	orientation *= Vector3(1,0,1)
-	%Pivot.transform = %Pivot.transform.looking_at(orientation)
+	%Pivot.global_rotation = Basis.looking_at(orientation).get_euler()
 	pass
 	
 func _set_current_aim_target(target:GMBaseTurret)->void:
